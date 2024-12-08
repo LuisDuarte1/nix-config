@@ -12,7 +12,7 @@
       self,
       nixpkgs,
       home-manager,
-    }@inputs:
+    }:
     {
       nixosConfigurations = {
 
@@ -27,7 +27,12 @@
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.luisd = import ./home/config.nix;
+              home-manager.users.luisd = {
+                imports = [
+                  ./home/base.nix
+                  ./home/i3.nix
+                ];
+              };
             }
           ];
         };

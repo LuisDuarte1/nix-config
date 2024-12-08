@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, home-manager, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -40,21 +40,12 @@
       xterm.enable = false;
     };
 
+    # use i3
+    windowManager.i3.enable = true;
+    
     displayManager = {
       defaultSession = "none+i3";
     };
-
-
-  windowManager.i3 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-      i3blocks
-      rofi
-    ];
-  };
 };
 
   # Configure keymap in X11

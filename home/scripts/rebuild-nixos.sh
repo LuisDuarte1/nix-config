@@ -15,7 +15,7 @@ if git diff --quiet; then
     exit 0
 fi
 
-
+nixfmt **.nix
 
 # Shows your changes
 git diff -U0 '*.nix'
