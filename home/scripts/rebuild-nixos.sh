@@ -25,8 +25,8 @@ echo "NixOS Rebuilding..."
 # add files, because we need flakes only import versioned files
 git add -A
 
-# Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+# Rebuild but store log in nixos-switch.log if needed for debugging
+sudo nixos-rebuild switch 2>&1 | tee nixos-switch.log
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)

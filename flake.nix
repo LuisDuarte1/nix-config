@@ -28,6 +28,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.luisd = {
+                # can customize each machine with its own config (i3 vs kde, for instance)
                 imports = [
                   ./home/base.nix
                   ./home/i3.nix
