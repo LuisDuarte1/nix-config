@@ -16,6 +16,7 @@
       arandr
       vscode
       nixfmt-rfc-style
+      nixd
    ];
 
     programs.git = {
@@ -35,11 +36,10 @@
 
     home.stateVersion = "24.11";
 
-
+    # Copy scripts folder to `~/.local/bin` and add it to path
     home.sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
     ];
-
     home.file = {
       ".local/bin" = {
         source = ./scripts;
