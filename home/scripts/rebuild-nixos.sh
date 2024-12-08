@@ -34,7 +34,7 @@ generation_number=$(echo $current | awk '{print $1}')
 
 # Commit all changes with the generation metadata as a message
 # Use metadata as a possible description
-git commit --edit -m "" -m "Generation metadata: $current"
+git commit --edit -m "TODO" -m "Generation metadata: $current"
 
 # push to origin, if possible
 git push
