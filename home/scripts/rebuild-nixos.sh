@@ -26,7 +26,8 @@ echo "NixOS Rebuilding..."
 git add -A
 
 # Rebuild but store log in nixos-switch.log if needed for debugging
-sudo nixos-rebuild switch 2>&1 | tee nixos-switch.log
+set -o pipefail
+sudo nixos-rebuild switch 2>&1 | tee nixos-switch.log || exit 1
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
