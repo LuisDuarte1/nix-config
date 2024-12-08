@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
 
     # nixpkgs.config.allowUnfreePredicate = pkg:
     #   builtins.elem (lib.getName pkg) [
@@ -35,4 +35,15 @@
 
     home.stateVersion = "24.11";
 
-  }
+
+    home.sessionPath = [
+      "${config.home.homeDirectory}/.local/bin"
+    ];
+
+    home.file = {
+      ".local/bin" = {
+        source = ./scripts;
+        recursive = true;
+      };
+    };
+}
